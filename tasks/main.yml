@@ -33,5 +33,5 @@
   systemd:
     name: x0vncserver.service
     state: restarted
-    enable: true
+    enabled: true
   when: tigervnc_daemon_enable
