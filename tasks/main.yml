@@ -4,7 +4,7 @@
 - name: Install tigervnc package
   kewlfft.aur.aur:
     name: tigervnc
-    state: installed
+    state: present
 
 - name: Create config dir
   file:
