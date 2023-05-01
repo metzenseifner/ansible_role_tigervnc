@@ -22,7 +22,7 @@
 
 - name: Create passwd file
   shell:
-    cmd: 'printf {{tigervnc_passwd}} | vncpasswd' 
+    cmd: 'printf {{tigervnc_passwd}} | vncpasswd -f' 
   register: tmp_vncpasswd
 
 - name: Write passwd file
