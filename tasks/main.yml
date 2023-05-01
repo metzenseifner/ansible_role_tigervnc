@@ -28,7 +28,7 @@
 - name: Write passwd file
   copy:
     dest: '{{tigervnc_config_path | dirname}}/passwd'
-    content: {{tmp_vncpasswd.stdout}}
+    content: '{{tmp_vncpasswd.stdout}}'
 
 - name: 'Copy :: systemd service'
   template:
