@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Jonathan L. Komar
+  description: Install and configure TigerVNC
+  company: Komar Consulting
+  license: MIT
+  min_ansible_version: 2.1
+
+  platforms:
+  - name: Arch Linux
+    versions:
+    - all
+
+  galaxy_tags:
+    - tigervnc
+    - vnc
+    - archlinux
+
+dependencies: []

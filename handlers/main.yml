@@ -1,0 +1,5 @@
+---
+# handlers file for ansible_role_tigervnc
+- name: daemon-reload
+  ansible.builtin.systemd:
+    daemon_reload: true

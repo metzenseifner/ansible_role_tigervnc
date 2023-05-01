@@ -1,0 +1,9 @@
+---
+# vars file for ansible_role_tigervnc
+tigervnc_session: plasma #see /usr/share/xsessions without .desktop ext
+tigervnc_geometry: 1920x1080
+tigervnc_passwd: 'tigervnc'
+tigervnc_config_path: '{{ansible_env.HOME}}/.config/tigervnc/config'
+tigervnc_args: []
+tigervnc_daemon_enable: true
+tigervnc_expose_to_network: false

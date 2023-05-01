@@ -1,0 +1,37 @@
+---
+# tasks file for ansible_role_tigervnc
+
+- name: Install tigervnc package
+  package:
+    name: tigervnc
+    state: installed
+
+- name: Create config dir
+  file:
+    state: directory
+    path: '{{tigervnc_config_path | dirname}}'
+
+- name: Create config
+  copy:
+    path: '{{tigervnc_config_path}}'
+    content: >-
+      session={{tigervnc_session}}
+      geometry={{tigervnc_geometry}}
+      alwaysshared
+      {{ localhost if tigervnc_export_to_network }}
+
+- name: 'Copy :: systemd service'
+  template:
+    src: '{{role_dir}}/files/x0vncserver.service'
+    dest: '/etc/systemd/system/x0vncserver.service'
+    owner: root
+    group: root
+  notify: daemon-reload
+  become: true
+
+- name: 'Enable systemd service'
+  systemd:
+    name: x0vncserver.service
+    state: restarted
+    enable: true
+  when: tigervnc_daemon_enable
