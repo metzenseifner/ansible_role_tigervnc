@@ -20,6 +20,10 @@
       alwaysshared
       {{ 'localhost' if not tigervnc_expose_to_network }}
 
+- name: Create passwd file
+  shell:
+    cmd: 'printf {{tigervnc_passwd}} | vncpasswd > {{tigervnc_config_path}}/passwd'
+
 - name: 'Copy :: systemd service'
   template:
     src: '{{role_path}}/files/x0vncserver.service'
