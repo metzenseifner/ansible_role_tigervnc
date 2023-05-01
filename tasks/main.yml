@@ -18,7 +18,7 @@
       session={{tigervnc_session}}
       geometry={{tigervnc_geometry}}
       alwaysshared
-      {{ localhost if not tigervnc_expose_to_network }}
+      {{ 'localhost' if not tigervnc_expose_to_network }}
 
 - name: 'Copy :: systemd service'
   template:
