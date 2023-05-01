@@ -14,7 +14,7 @@
 - name: Create config
   copy:
     dest: '{{tigervnc_config_path}}'
-    content: >-
+    content: |
       session={{tigervnc_session}}
       geometry={{tigervnc_geometry}}
       alwaysshared
@@ -22,7 +22,7 @@
 
 - name: Create passwd file
   shell:
-    cmd: 'printf {{tigervnc_passwd}} | vncpasswd > {{tigervnc_config_path}}/passwd'
+    cmd: 'printf {{tigervnc_passwd}} | vncpasswd > {{tigervnc_config_path | dirname}}/passwd'
 
 - name: 'Copy :: systemd service'
   template:
