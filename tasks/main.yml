@@ -2,7 +2,7 @@
 # tasks file for ansible_role_tigervnc
 
 - name: Install tigervnc package
-  ansible-aur:
+  aur:
     name: tigervnc
     state: installed
 
