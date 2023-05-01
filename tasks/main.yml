@@ -22,7 +22,13 @@
 
 - name: Create passwd file
   shell:
-    cmd: 'printf {{tigervnc_passwd}} | vncpasswd > {{tigervnc_config_path | dirname}}/passwd'
+    cmd: 'printf {{tigervnc_passwd}} | vncpasswd' 
+  register: tmp_vncpasswd
+
+- name: Write passwd file
+  copy:
+    dest: '{{tigervnc_config_path | dirname}}/passwd'
+    content: {{tmp_vncpasswd.stdout}}
 
 - name: 'Copy :: systemd service'
   template:
