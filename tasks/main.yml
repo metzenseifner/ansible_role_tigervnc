@@ -22,7 +22,7 @@
 
 - name: 'Copy :: systemd service'
   template:
-    src: '{{role_dir}}/files/x0vncserver.service'
+    src: '{{role_path}}/files/x0vncserver.service'
     dest: '/etc/systemd/system/x0vncserver.service'
     owner: root
     group: root
