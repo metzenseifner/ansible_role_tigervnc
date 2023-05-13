@@ -8,7 +8,8 @@ After=network-online.target
 Type=simple
 Environment=HOME={{ansible_env.HOME}}
 #Environment=XAUTHORITY=/var/run/lightdm/root/:0
-ExecStart=x0vncserver -display :0 -rfbauth {{tigervnc_config_path}}/passwd
+# rfb protocol: Remote Framebuffer Protocol is what VNC uses
+ExecStart=x0vncserver -display :0 -rfbauth {{tigervnc_config_path | basename}}/passwd
 Restart=on-failure
 RestartSec=500ms
 

@@ -45,3 +45,4 @@
     state: restarted
     enabled: true
   when: tigervnc_daemon_enable
+  become: true
